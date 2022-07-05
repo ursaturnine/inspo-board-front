@@ -1,10 +1,18 @@
 import React from "react";
-import { Text, StyleSheet, View, Button } from "react-native";
+import { Text, StyleSheet, View, Image } from "react-native";
 
 const AddScreen = ({}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.textStyle}> *✿❀Feeling Inspired? ❀✿＊*</Text>
+      <Image
+        source={require("../../assets/cats/inspired_cat.png")}
+        resizeMode="contain"
+        style={{
+          width: 150,
+          height: 150,
+        }}
+      />
     </View>
   );
 };
