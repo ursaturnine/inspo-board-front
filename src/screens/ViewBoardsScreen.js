@@ -5,22 +5,27 @@ const ViewBoardsScreen = ({}) => {
   const boards = [
     {
       title: "Purple Board",
+      cards: 5,
       owner: "Olivia",
     },
     {
       title: "Pink Board",
-      owner: "Natalied",
+      cards: 4,
+      owner: "Natalie",
     },
     {
       title: "Baby Blue Board",
+      cards: 10,
       owner: "Aliyah",
     },
     {
       title: "Sea Green Board",
+      cards: 4,
       owner: "Peyton",
     },
     {
       title: "Lavender Board",
+      cards: 5,
       owner: "Vanessa",
     },
   ];
@@ -41,7 +46,12 @@ const ViewBoardsScreen = ({}) => {
         keyExtractor={(board) => board.title}
         data={boards}
         renderItem={({ item }) => {
-          return <Text style={styles.boards}>{item.title}</Text>;
+          return (
+            <View style={styles.container}>
+              <Text style={styles.boards}>Title: {item.title}</Text>
+              <Text style={styles.boards}>Cards: {item.cards}</Text>
+            </View>
+          );
         }}
       />
     </View>

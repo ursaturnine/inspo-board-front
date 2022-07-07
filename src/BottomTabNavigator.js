@@ -5,6 +5,7 @@ import ViewBoardsScreen from "./screens/ViewBoardsScreen";
 import ViewCardsScreen from "./screens/ViewCardsScreen";
 import AddScreen from "./screens/AddScreen";
 import { Text, StyleSheet, View, Button, Image } from "react-native";
+import AddBoardScreen from "./screens/AddBoardScreen";
 
 const BottomTab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -153,6 +154,36 @@ const BottomTabNavigator = () => {
                 style={{ color: focused ? "#B6D0E2" : "#E6E6FA", fontSize: 12 }}
               >
                 Add
+              </Text>
+            </View>
+          ),
+        }}
+      ></BottomTab.Screen>
+      <BottomTab.Screen
+        name="Add Board"
+        component={AddBoardScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                top: 10,
+              }}
+            >
+              <Image
+                source={require("../assets/Icons/home.png")}
+                resizeMode="contain"
+                style={{
+                  width: 25,
+                  height: 25,
+                  tintColor: focused ? "#B6D0E2" : "#E6E6FA",
+                }}
+              />
+              <Text
+                style={{ color: focused ? "#B6D0E2" : "#E6E6FA", fontSize: 12 }}
+              >
+                Add Board
               </Text>
             </View>
           ),
