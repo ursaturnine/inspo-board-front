@@ -1,27 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, Image, FlatList } from "react-native";
+import axios from "axios";
 
 const ViewCardsScreen = ({}) => {
-  const cards = [
-    {
-      message: "Wow!",
-    },
-    {
-      message: "Oh, Cool",
-    },
-    {
-      message: "Cute!",
-    },
-    {
-      message: "Lovely!",
-    },
-    {
-      message: "Sweet!",
-    },
-    {
-      message: "Cherries!",
-    },
-  ];
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("127.0.0.1:5000/cards")
+      .then((response) => response.json())
+      .then((cards) => setCards(cards));
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.textStyles}>♡*♡∞:｡.｡Top 3 Liked Cards ♡*♡∞:｡.｡</Text>

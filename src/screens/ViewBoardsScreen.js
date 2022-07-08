@@ -1,34 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, Image, FlatList } from "react-native";
+import axios from "axios";
 
 const ViewBoardsScreen = ({}) => {
-  const boards = [
-    {
-      title: "Purple Board",
-      cards: 5,
-      owner: "Olivia",
-    },
-    {
-      title: "Pink Board",
-      cards: 4,
-      owner: "Natalie",
-    },
-    {
-      title: "Baby Blue Board",
-      cards: 10,
-      owner: "Aliyah",
-    },
-    {
-      title: "Sea Green Board",
-      cards: 4,
-      owner: "Peyton",
-    },
-    {
-      title: "Lavender Board",
-      cards: 5,
-      owner: "Vanessa",
-    },
-  ];
+  const [boards, setBoards] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("127.0.0.1:5000/boards")
+      .then((response) => response.json())
+      .then((boards) => setBoards(boards));
+  }, []);
 
   return (
     <View style={styles.container}>
